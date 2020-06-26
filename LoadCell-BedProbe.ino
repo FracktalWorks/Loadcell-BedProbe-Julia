@@ -17,8 +17,8 @@ float val = 0 ;
 bool resetFlag = false;
 bool dir, prevDir;
 
-#define LOWERTHRESHOLD 20
-#define UPPERTHRESHOLD 35
+#define LOWERTHRESHOLD 10
+#define UPPERTHRESHOLD 25
 #define DIR_PIN A1
 #define TARE_PIN 8
 #define TRIGGER_PIN 7

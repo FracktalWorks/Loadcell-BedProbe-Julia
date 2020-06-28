@@ -8,7 +8,7 @@
 // This is an example sketch on how to use this library
 // Settling time (number of samples) and data filtering can be adjusted in the HX711_ADC.h file
 
-#include <HX711_ADC.h>
+#include "HX711_ADC.h"
 
 //HX711 constructor (dout pin, sck pin)
 HX711_ADC LoadCell(9, 10);

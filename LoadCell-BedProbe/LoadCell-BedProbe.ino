@@ -122,7 +122,7 @@ void setup()
     pinMode(LED_PIN,OUTPUT);
     digitalWrite(LED_PIN,LOW);
   #endif
-  pinMode(DIR_PIN,INPUT_PULLUP);
+  pinMode(DIR_PIN,INPUT);
   prevDir = digitalRead(DIR_PIN);
 
 }

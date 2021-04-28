@@ -20,11 +20,11 @@ bool dir, prevDir;
 //Settings
 //-------------------------------------------------------------------------------------
 
-#define LOWERTHRESHOLD 10
-#define UPPERTHRESHOLD 25
+#define LOWERTHRESHOLD 15
+#define UPPERTHRESHOLD 30
 #define DIR_PIN A1
-#define TARE_PIN 8
 #define TRIGGER_PIN 7
+#define TARE_PIN 8
 #define SETTLE_TIME 500
 #define LED_PIN 6
 #define INVERT_Z_DIR true  //false if Z_DIR is HIGH when moving towards bed.
@@ -41,8 +41,8 @@ void tareLoadCell()
   digitalWrite(TRIGGER_PIN,LOW);
   delay(SETTLE_TIME);
   LoadCell.begin();
-  LoadCell.start(4000);
-  LoadCell.setCalFactor(700); // user set calibration factor (float)
+  LoadCell.start(2000,true);
+  LoadCell.setCalFactor(50); // user set calibration factor (float)
   #ifdef DEBUG
     Serial.print(35);
     Serial.print(" ");
@@ -81,6 +81,8 @@ bool isMovingTowardBed()
 bool isChangedDirectionTowardBed() //
 {
   dir = digitalRead(DIR_PIN);
+// Serial.println(dir);
+
   #if INVERT_Z_DIR == true
     if ((dir == LOW) && (prevDir == HIGH))
       {
@@ -111,8 +113,8 @@ void setup()
     Serial.println("Wait...");
   #endif
   LoadCell.begin();
-  LoadCell.start(2000);
-  LoadCell.setCalFactor(700.25); // user set calibration factor (float)
+  LoadCell.start(2000,true);
+  LoadCell.setCalFactor(50); // user set calibration factor (float)
   #ifdef DEBUG
   Serial.println("Startup + tare is complete");
   #endif

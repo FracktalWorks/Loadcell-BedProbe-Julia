@@ -8,6 +8,8 @@
 // This is an example sketch on how to use this library
 // Settling time (number of samples) and data filtering can be adjusted in the HX711_ADC.h file
 
+
+//This is code for Julia series and pro series- bed- bed levelling
 #include <HX711_ADC.h>
 
 //HX711 constructor (dout pin, sck pin)

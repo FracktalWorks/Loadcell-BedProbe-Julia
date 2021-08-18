@@ -22,8 +22,8 @@ bool dir, prevDir;
 //Settings
 //-------------------------------------------------------------------------------------
 
-#define LOWERTHRESHOLD 15
-#define UPPERTHRESHOLD 30
+#define LOWERTHRESHOLD 10
+#define UPPERTHRESHOLD 25
 #define DIR_PIN A1
 #define TRIGGER_PIN 7
 #define TARE_PIN 8
@@ -43,8 +43,8 @@ void tareLoadCell()
   digitalWrite(TRIGGER_PIN,LOW);
   delay(SETTLE_TIME);
   LoadCell.begin();
-  LoadCell.start(2000,true);
-  LoadCell.setCalFactor(50); // user set calibration factor (float)
+  LoadCell.start(4000);
+  LoadCell.setCalFactor(700); // user set calibration factor (float)
   #ifdef DEBUG
     Serial.print(35);
     Serial.print(" ");
@@ -115,8 +115,8 @@ void setup()
     Serial.println("Wait...");
   #endif
   LoadCell.begin();
-  LoadCell.start(2000,true);
-  LoadCell.setCalFactor(50); // user set calibration factor (float)
+  LoadCell.start(2000);
+  LoadCell.setCalFactor(700.25); // user set calibration factor (float)
   #ifdef DEBUG
   Serial.println("Startup + tare is complete");
   #endif

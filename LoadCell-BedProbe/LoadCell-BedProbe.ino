@@ -24,12 +24,12 @@ bool dir, prevDir;
 
 #define LOWERTHRESHOLD 10
 #define UPPERTHRESHOLD 25
-#define DIR_PIN A1
+#define DIR_PIN 1
 #define TRIGGER_PIN 7
 #define TARE_PIN 8
 #define SETTLE_TIME 500
 #define LED_PIN 6
-#define INVERT_Z_DIR true  //false if Z_DIR is HIGH when moving towards bed.
+#define INVERT_Z_DIR false  //false if Z_DIR is HIGH when moving towards bed.
 #define DEBUG 1 //switch serial output
 
 //-------------------------------------------------------------------------------------
@@ -150,10 +150,10 @@ void loop()
       #endif
 
       LoadCell.update();
-      Serial.print(LoadCell.getData());
+//      Serial.print(LoadCell.getData());
 
-      val = LoadCell.getData();
-
+      val = (-1)* LoadCell.getData();
+      Serial.print(val);
 
       if (val >= LOWERTHRESHOLD && val < UPPERTHRESHOLD)
       {
